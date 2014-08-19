@@ -1,93 +1,147 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset='utf-8' />
-        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-        <meta name="description" content="Angular Pageslide Directive: AngularJS sliding panel for serving additional content" />
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Ng-pageslide : AngularJS sliding panel for serving additional content">
 
-        <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-        <title>Angular Pageslide Directive | sliding panel for mobile first websites</title>
+    <title>Ng-pageslide</title>
+  </head>
 
-    </head>
+  <body>
 
-    <body>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/hderms/ng-pageslide">View on GitHub</a>
 
-        <!-- HEADER -->
-        <div id="header_wrap" class="outer">
-            <header class="inner">
-            <a id="forkme_banner" href="https://github.com/dpiccone/ng-pageslide">View on GitHub</a>
-
-            <h1 id="project_title">Ng-pageslide</h1>
-            <h2 id="project_tagline">AngularJS sliding panel for serving additional content</h2>
+          <h1 id="project_title">Ng-pageslide</h1>
+          <h2 id="project_tagline">AngularJS sliding panel for serving additional content</h2>
 
             <section id="downloads">
-            <a class="zip_download_link" href="https://github.com/dpiccone/ng-pageslide/zipball/master">Download this project as a .zip file</a>
-            <a class="tar_download_link" href="https://github.com/dpiccone/ng-pageslide/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/hderms/ng-pageslide/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/hderms/ng-pageslide/tarball/master">Download this project as a tar.gz file</a>
             </section>
-            </header>
-        </div>
+        </header>
+    </div>
 
-        <!-- MAIN CONTENT -->
-        <div id="main_content_wrap" class="outer">
-            <section id="main_content" class="inner">
-            <h1>
-                <a name="angularjs-pageslide-directive" class="anchor" href="#angularjs-pageslide-directive"><span class="octicon octicon-link"></span></a>AngularJS Pageslide directive</h1>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="angularjs-pageslide-directive" class="anchor" href="#angularjs-pageslide-directive"><span class="octicon octicon-link"></span></a>AngularJS Pageslide directive</h1>
 
-            <p>
-            An <a href="http://angularjs.org/">AngularJS</a> directive which slides another panel over your browser to reveal an additional interaction pane.<br/>
-            <br/>
-            It does all the css manipulation needed to position your content off canvas with html attibutes and it does not depend on jQuery
-            </p>
-            <p>See it in action <a href="examples/">Here</a></p>
-            <h2><a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<p>An <a href="http://angularjs.org/">AngularJS</a> directive which slides another panel over your browser to reveal an additional interaction pane.</p>
 
-            <p>Documentation an usage on the <a href="https://github.com/dpiccone/ng-pageslide">github page</a>
+<p>It does all the css manipulation needed to position your content off canvas with html attibutes and it does not depend on jQuery</p>
 
-            <h2>
-                <a name="licensing" class="anchor" href="#licensing"><span class="octicon octicon-link"></span></a>Licensing</h2>
+<p>See it in action <a href="http://hderms.github.io/ng-pageslide/examples/">HERE</a></p>
 
-            <p>Licensed under <a href="http://opensource.org/licenses/MIT">MIT</a></p>
+<p>Examples in the repository.</p>
 
-            </section>
-        </div>
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-        <!-- FOOTER  -->
-        <div id="footer_wrap" class="outer">
-            <footer class="inner">
-            <p class="copyright">Ng-pageslide maintained by <a href="https://github.com/dpiccone">dpiccone</a></p>
-            <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-            </footer>
-        </div>
+<p>Add this in your head</p>
 
-        <script type="text/javascript">
+<pre><code>&lt;script src="src/angular-pageslide-directive.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Use within your Angular app </p>
+
+<pre><code>var app = angular.module("app", ["pageslide-directive"]);
+</code></pre>
+
+<p>Just use the <code>&lt;pageslide&gt;</code> element or attribute inside a controller scope like this:</p>
+
+<p>please note that you need an outer controller to define the scope of your <strong>checked</strong> model</p>
+
+<p>also you need an inner <code>&lt;div&gt;</code> to wrap your content in</p>
+
+<pre><code>&lt;div ... ng-controller="yourCtrl"&gt;
+    ...
+    &lt;pageslide ps-open="checked"&gt;
+        &lt;div&gt;            
+            &lt;p&gt;some random content...&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/pageslide&gt;
+    ...
+&lt;/div&gt;
+
+</code></pre>
+
+<p>or you can use on you anchors referencing a <code>&lt;div&gt;</code> in your document like:</p>
+
+<p>and yes, it can be used like an html element referencing a <code>&lt;div&gt;</code> also.</p>
+
+<pre><code>&lt;pageslide="right" ps-speed="0.5" ps-target="#target" ps-open="checked"&gt;&lt;/pageslide&gt;
+
+&lt;div id="target"&gt;            
+    &lt;p&gt;some random content...&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>or you can open close without a controller, just using a <strong>target</strong>:</p>
+
+<pre><code>&lt;a pageslide href="#target"&gt;Link text&lt;/a&gt;
+
+&lt;div id="target"&gt;            
+    &lt;p&gt;some random content...&lt;/p&gt;
+    &lt;a id="target-close" href="#"&gt;Click to close&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options:</h3>
+
+<pre><code>pageslide (required) = Where the panel should appear (right,left,top,bottom), if empty defaults to "right"
+ps-target (optional) = "#target" used when using pageslide as an element
+ps-open (optional) = Boolean true/false used to open and close the panel (optional)
+ps-speed (optional) = The speed of the transition (optional)
+ps-class (optional) = The class for the pageslide (default: "ng-pageslide")
+ps-auto-close (optional) = true if you want the panel to close on location change
+ps-size (optional) = desired height/width of panel (defaults to 300px)
+ps-custom-height (optional) = custom CSS for panel height (only applicable in 'right' or 'left' panels)
+ps-custom-top (optional) = custom CSS for panel top (only applicable in 'right', 'left' or 'top' panels)
+ps-custom-bottom (optional) = custom CSS for panel bottom (only applicable in 'right', 'left' or 'bottom' panels)
+ps-custom-left (optional) = custom CSS for panel left (only applicable in 'left', 'top' or 'bottom' panels)
+ps-custom-right (optional) = custom CSS for panel right (only applicable in 'right', 'top' or 'bottom' panels)
+</code></pre>
+
+<h2>
+<a name="licensing" class="anchor" href="#licensing"><span class="octicon octicon-link"></span></a>Licensing</h2>
+
+<p>Licensed under <a href="http://opensource.org/licenses/MIT">MIT</a></p>
+
+<h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+
+<p>2013, Daniele Piccone <a href="http://www.danielepiccone.com">www.danielepiccone.com</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ng-pageslide maintained by <a href="https://github.com/hderms">hderms</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
+          </script>
+          <script type="text/javascript">
             try {
-                var pageTracker = _gat._getTracker("UA-42627434-1");
-                pageTracker._trackPageview();
+              var pageTracker = _gat._getTracker("UA-42627434-1");
+            pageTracker._trackPageview();
             } catch(err) {}
-        </script>
+          </script>
 
-        <!-- Start of StatCounter Code for Default Guide -->
-        <script type="text/javascript">
-            var sc_project=9395740; 
-            var sc_invisible=1; 
-            var sc_security="23819d4a"; 
-            var scJsHost = (("https:" == document.location.protocol) ?
-            "https://secure." : "http://www.");
-            document.write("<sc"+"ript type='text/javascript' src='" +
-                scJsHost+
-            "statcounter.com/counter/counter.js'></"+"script>");
-        </script>
-        <noscript><div class="statcounter"><a title="web analytics"
-                    href="http://statcounter.com/" target="_blank"><img
-                    class="statcounter"
-                    src="http://c.statcounter.com/9395740/0/23819d4a/1/"
-                    alt="web analytics"></a></div></noscript>
-        <!-- End of StatCounter Code for Default Guide -->
-    </body>
+
+  </body>
 </html>
